@@ -35,7 +35,7 @@ class PCHeader extends React.Component{
         this.setState({modalVisible:value});
     }
     handleClick(e){
-        console.log(111)
+
         if(e.key=="register"){
             this.setState({current:'register'});
             this.setModalVisible(true);
@@ -53,7 +53,8 @@ class PCHeader extends React.Component{
             method: 'GET'
         };
         var formData = this.props.form.getFieldsValue();
-        console.log(formData);
+        console.log("表单输出："+formData);
+        console.log('this.state.action:'+this.state.action);
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action="+ this.state.action
             + "&username="+formData.userName+"&password="+formData.password
             +"&r_userName=" + formData.r_userName + "&r_password="
@@ -138,13 +139,13 @@ class PCHeader extends React.Component{
                                 <TabPane tab="注册" key="2">
                                     <Form layout="horizontal" onSubmit={this.handleSubmit.bind(this)}>
                                         <FormItem label="账户">
-                                            <input placeholder="请输入您的账号" {...getFieldDecorator('r_userName')}/>
+                                            {getFieldDecorator('r_userName')(<Input placeholder="请输入您的账号" />)}
                                         </FormItem>
                                         <FormItem label="密码">
-                                            <input type="password" placeholder="请输入您的密码" {...getFieldDecorator('r_password')}/>
+                                            {getFieldDecorator('r_password')(<Input type="password" placeholder="请输入您的密码" />)}
                                         </FormItem>
                                         <FormItem label="确认密码">
-                                            <input type="password" placeholder="请再次输入您的密码" {...getFieldDecorator('r_confirmPassword')}/>
+                                            {getFieldDecorator('r_confirmPassword')(<Input type="password" placeholder="请再次输入您的密码" />)}
                                         </FormItem>
                                         <Button type="primary" htmlType="submit">注册</Button>
                                     </Form>
