@@ -35,6 +35,7 @@ class PCHeader extends React.Component{
         this.setState({modalVisible:value});
     }
     handleClick(e){
+        
         if(e.key=="register"){
             this.setState({current:'register'});
             this.setModalVisible(true);
