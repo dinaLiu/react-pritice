@@ -67,8 +67,9 @@ class PCHeader extends React.Component{
         if (this.state.action=="login") {
             this.setState({hasLogined:true});
         }
+        /*
         message.success("请求成功！");
-        this.setModalVisible(false);
+        this.setModalVisible(false);*/
     };
     callback(key) {
         if (key == 1) {
