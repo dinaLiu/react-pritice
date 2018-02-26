@@ -35,7 +35,7 @@ class PCHeader extends React.Component{
         this.setState({modalVisible:value});
     }
     handleClick(e){
-        
+        console.log(111)
         if(e.key=="register"){
             this.setState({current:'register'});
             this.setModalVisible(true);
@@ -48,7 +48,34 @@ class PCHeader extends React.Component{
     }
     handleSubmit(e){
         /*页面开始向 API 进行提交数据*/
-    }
+        e.preventDefault();
+        var myFetchOptions = {
+            method: 'GET'
+        };
+        var formData = this.props.form.getFieldsValue();
+        console.log(formData);
+        fetch("http://newsapi.gugujiankong.com/Handler.ashx?action="+ this.state.action
+            + "&username="+formData.userName+"&password="+formData.password
+            +"&r_userName=" + formData.r_userName + "&r_password="
+            + formData.r_password + "&r_confirmPassword="
+            + formData.r_confirmPassword, myFetchOptions)
+            .then(response => response.json())
+            .then(json => {
+                this.setState({userNickName: json.NickUserName, userid: json.UserId});
+            });
+        if (this.state.action=="login") {
+            this.setState({hasLogined:true});
+        }
+        message.success("请求成功！");
+        this.setModalVisible(false);
+    };
+    callback(key) {
+        if (key == 1) {
+            this.setState({action: 'login'});
+        } else if (key == 2) {
+            this.setState({action: 'register'});
+        }
+    };
 
     render(){
         /*定义一个全局的量来接收表单全局的参数*/
@@ -109,7 +136,7 @@ class PCHeader extends React.Component{
                         <Modal title="用户中心" wrapClassName="vertical-center-modal" visible={this.state.modalVisible} onCancel={()=>this.setModalVisible(false)} onOk={()=>this.setModalVisible(false)}  okText="关闭">
                             <Tabs type="card">
                                 <TabPane tab="注册" key="2">
-                                    <Form horizontal onSubmit={this.handleSubmit.bind(this)}>
+                                    <Form layout="horizontal" onSubmit={this.handleSubmit.bind(this)}>
                                         <FormItem label="账户">
                                             <input placeholder="请输入您的账号" {...getFieldDecorator('r_userName')}/>
                                         </FormItem>
