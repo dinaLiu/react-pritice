@@ -10,6 +10,7 @@ import MobileIndex from './components/mobile_index';
 import 'antd/dist/antd.css';
 import MediaQuery from 'react-responsive';
 
+
 export default class Root extends React.Component{
     render(){
 
