@@ -24,11 +24,8 @@ class PCHeader extends React.Component{
     constructor(){
         super();
         this.state = {
-
             current: 'top',
-
             modalVisible : false, /*默认值是否显示*/
-            
             action : 'login', /*action是用来支持按钮是用来登录还是注册*/
             hasLogined : false , /*是否已经登录*/
             userNickName:'', /*昵称*/
