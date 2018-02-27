@@ -13,19 +13,11 @@ import {
     Checkbox,
     Modal
 } from 'antd';
+
 const FormItem = Form.Item; /*页面表单from提交的插件，后面是固定值*/
-
-
 const SubMenu = Menu.SubMenu;
-
-
-
 const TabPane = Tabs.TabPane;
-
-
 const MenuItemGroup = Menu.ItemGroup;
-
-
 class PCHeader extends React.Component{
 
     constructor(){
