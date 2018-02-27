@@ -88,14 +88,13 @@ class MobileHeader extends React.Component{
     };
 
     render(){
-
+        let {getFieldDecorator}=this.props.form;
         const userShow = this.state.hasLogined?
-            <Link>
+            <Link target="_blank" to={`/`}>
                 <Icon type="inbox"/>
             </Link>
             :
-            <Icon type="setting" onClick={this.login.bind(this)}/>
-
+            <Icon type="setting" onClick={this.login.bind(this)}/>;
       return(
         <div id="mobileheader">
             <header>
