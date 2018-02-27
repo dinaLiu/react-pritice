@@ -29,12 +29,12 @@ class PCHeader extends React.Component{
             action : 'login', /*action是用来支持按钮是用来登录还是注册*/
             hasLogined : false , /*是否已经登录*/
             userNickName:'', /*昵称*/
-
             userid : 0 /*当前没有，就定义为0*/
         };
     };
 
     componentWillMount(){
+        //commit
         if(localStorage.userid!=''){
             this.setState({hasLogined:true});
             this.setState({userNickName:localStorage.userNickName,userid:localStorage.userid});
