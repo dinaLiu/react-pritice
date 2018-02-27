@@ -122,10 +122,35 @@ bundle.js:10990 Warning: Form[inline|horizontal|vertical] is deprecated, please 
        You should not use <Link> outside a <Router>
 
        大概的意思是 Link 需要搭配 Router使用,那么 在root.js 添加路由
-       1.引用 react-router-dom
+       1.替换
+       import {HashRouter as Router, Route, Link,Switch} from 'react-router-dom';
+       为
        import {Route, BrowserRouter,Switch} from 'react-router-dom';
 
-       2.
+       2.替换
+       <div>
+          <MediaQuery query="(min-device-width:1224px)"> {/*MediaQuery,可以通过屏幕大小的变化来适配，显示不同屏幕大小的东西出来; MediaQuery 后面跟的是query，这里query查询的是最小屏幕显示的宽*/}
+                           <PCIndex/>
+           </MediaQuery>
+            ......
+       </div>
+
+       为
+
+       <div>
+                 <MediaQuery query="(min-device-width:1224px)"> {/*MediaQuery,可以通过屏幕大小的变化来适配，显示不同屏幕大小的东西出来; MediaQuery 后面跟的是query，这里query查询的是最小屏幕显示的宽*/}
+                                   <BrowserRouter>
+                                         <Switch>
+                                              <Route exact path="/" component={PCIndex}></Route>
+                                          </Switch>
+                                   </BrowserRouter>
+                  </MediaQuery>
+                   ......
+       </div>
+
+
+
+
 
 
 
