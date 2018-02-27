@@ -109,6 +109,14 @@ bundle.js:10990 Warning: Form[inline|horizontal|vertical] is deprecated, please 
        说明当登录成功后    this.state.hasLogined 值将为true,将不显示 "注册/登录",而是显示  "个人中心/退出"并且用到了 Link,
        所以要声明引用 Link:
          import {Link} from 'react-router-dom';
+       修改
+       <link target="_blank">
+            <Button type="dashed" htmlType="button">个人中心</Button>
+       </link>
+       为
+       <Link target="_blank">
+             <Button type="dashed" htmlType="button">个人中心</Button>
+       </Link>
 
        修改后继续报错:
        Warning: Failed prop type: The prop `to` is marked as required in `Link`, but its value is `undefined`.
