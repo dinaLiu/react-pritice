@@ -35,11 +35,6 @@ class PCHeader extends React.Component{
     };
 
     componentWillMount(){
-<<<<<<< HEAD
-        //lalala
-=======
-        //我非常的帅
->>>>>>> f3cfcca4217c98f0483a8b9f8eda760ac922e534
         if(localStorage.userid!=''){
             this.setState({hasLogined:true});
             this.setState({userNickName:localStorage.userNickName,userid:localStorage.userid});
