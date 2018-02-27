@@ -17,6 +17,7 @@ const FormItem = Form.Item; /*页面表单from提交的插件，后面是固定�
 const SubMenu = Menu.SubMenu;
 const TabPane = Tabs.TabPane;
 const MenuItemGroup = Menu.ItemGroup;
+import {Link} from 'react-router-dom';
 
 class PCHeader extends React.Component{
 
@@ -65,12 +66,14 @@ class PCHeader extends React.Component{
             .then(json => {
                 this.setState({userNickName: json.NickUserName, userid: json.UserId});
             });
+
         if (this.state.action=="login") {
             this.setState({hasLogined:true});
         }
-        /*
+
         message.success("请求成功！");
-        this.setModalVisible(false);*/
+        this.setModalVisible(false);
+
     };
     callback(key) {
         if (key == 1) {
@@ -87,7 +90,7 @@ class PCHeader extends React.Component{
         ?<Menu.Item key="logout" className = "register">
                 <Button type="primary" htmlType="button">{this.state.userNickName}</Button>
                 &nbsp;&nbsp;
-                <Link to={'/'} target="_blank">
+                <Link target="_blank" to={`/`}>
                     <Button type="dashed" htmlType="button">个人中心</Button>
                 </Link>
                 &nbsp;&nbsp;
