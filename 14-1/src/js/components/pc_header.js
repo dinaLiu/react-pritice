@@ -34,7 +34,6 @@ class PCHeader extends React.Component{
     };
 
     componentWillMount(){
-        //commit
         if(localStorage.userid!=''){
             this.setState({hasLogined:true});
             this.setState({userNickName:localStorage.userNickName,userid:localStorage.userid});
@@ -57,7 +56,8 @@ class PCHeader extends React.Component{
         }
     }
     handleSubmit(e){
-        /*页面开始向 API 进行提交数据 冲突再来一遍*/
+        /*页面开始向 API 进行提交数据
+        冲突再来一遍*/
         e.preventDefault();
         var myFetchOptions = {
             method: 'GET'
