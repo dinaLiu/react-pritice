@@ -13,7 +13,6 @@ export default class ES6ArrayMap  extends React.Component{
         //emails 接收 users 里面所有的邮箱
         var emails = users.map(function (user,index) {
                               console.log("当前索引:"+index + " 当前索引对应的值" + user);
-
                               return user.email;
                     });
 
