@@ -3,6 +3,7 @@ import {Row,Col} from 'antd';
 import {Tabs,Carousel} from 'antd';
 import PCNewsBlock from './pc_news_block';
 import PCNewsImageBlock from './pc_news_image_block';
+import ES6ArrayMap from './es6_array_map';
 const TabPane = Tabs.TabPane;
 export default class PCNewsContainer extends React.Component{
     render(){
@@ -44,6 +45,8 @@ export default class PCNewsContainer extends React.Component{
                     </Col>
                     <Col span={2}></Col>
                 </Row>
+
+                <ES6ArrayMap></ES6ArrayMap>
             </div>
         )
     }
