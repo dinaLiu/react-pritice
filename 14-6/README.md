@@ -12,5 +12,27 @@
         float: left;
         width:33.33%;
     }
+    
+    
+    
+
+复习知识点:
+1.var 和 const 的区别,延伸:JavaScript中var、let、const区别
+  a.let和const都是es5
+  b.let是修复了var的作用域的一些bug，变的更加好用。let是更好的var。var的作用于是函数作用于，而let是块级别（大括号括起来的内容）
+    const声明的变量只可以在声明时赋值，不可随意修改
+
+2.var users = [
+      {name: "张含韵", "email": "zhang@email.com"},
+      {name: "江一燕",   "email": "jiang@email.com"},
+      {name: "李小璐",  "email": "li@email.com"}
+    ];
+    请遍历 打印出 数组里的 email (使用 for 于 map)
+
+
+3.直接 从 c盘切换到 e盘的 react/react-pritice/14-7 怎么切换?
+
+4. 如何 通过 localStorage 存储userNickName ? 和 获取 userNickName?    
+    
 
 
