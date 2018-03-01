@@ -26,7 +26,8 @@ export default class PCNewsImageBlock extends React.Component{
 
         const styleImage = {
             display:"block",
-            width:this.props.imageWidth
+            width:this.props.imageWidth,
+            height: "90px"
         };
         const styleH3 = {
             width:this.props.imageWidth,
