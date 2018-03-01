@@ -1,11 +1,10 @@
-/**
- * Created by Administrator on 2018/2/13 0013.
- */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route, BrowserRouter,Switch} from 'react-router-dom';
 import {Button,Icon} from 'antd';
 import PCIndex from './components/pc_index';
+import PCNewsDetails from './components/pc_news_details';
 import MobileIndex from './components/mobile_index';
 import 'antd/dist/antd.css';
 import MediaQuery from 'react-responsive';
@@ -20,6 +19,7 @@ export default class Root extends React.Component{
                     <BrowserRouter>
                         <Switch>
                             <Route exact path="/" component={PCIndex}></Route>
+                            <Route exact path="/details/:uniquekey" component={PCNewsDetails}></Route>
                         </Switch>
                     </BrowserRouter>
                 </MediaQuery>
