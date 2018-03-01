@@ -12,9 +12,9 @@
         float: left;
         width:33.33%;
     }
-    
-    
-    
+
+
+​    
 
 复习知识点:
 1.var 和 const 的区别,延伸:JavaScript中var、let、const区别
@@ -29,10 +29,17 @@
     ];
     请遍历 打印出 数组里的 email (使用 for 于 map)
 
-
 3.直接 从 c盘切换到 e盘的 react/react-pritice/14-7 怎么切换?
 
+cd/d E:\react/react-pritice/14-7 然后回车
+
 4. 如何 通过 localStorage 存储userNickName ? 和 获取 userNickName?    
-    
+
+   ```
+   // 存储
+   localStorage.setItem("userNickName", "Gates");
+   // 取回
+   localStorage.getItem("userNickName");
+   ```
 
 
