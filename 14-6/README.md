@@ -34,5 +34,5 @@
 
 4. 如何 通过 localStorage 存储userNickName ? 和 获取 userNickName?    
     
-
+5. 我们现在用的ui框架 为蚂蚁金服下的  nat design, 栅格化系统，我们是基于行（row）和列（col）来定义信息区块的外部框架,问题来了 1个row中的col总和为多少?
 
