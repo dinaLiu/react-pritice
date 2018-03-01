@@ -61,24 +61,7 @@ html{
 }
 
 
-.topbar{
-	text-align: left !important; 
-	margin-bottom: 10px;
-	background: #2db7f5;
-	display:block;
-	font-size:.32rem;
-  	max-width:1080px;
-	height:.98rem;
-	line-height:.98rem;
-	padding:0 0 0 10px;
-	box-sizing:border-box;
-	font-size:0;
-	-webkit-tap-highlight-color:rgba(0,0,0,0);
-	position:fixed;
-	width:7.5rem;
-	z-index:10000;
-	top:0
-	}
+.topbar{text-align: left !important; margin-bottom: 10px;background: #2db7f5;display:block;font-size:.32rem;max-width:1080px;height:.98rem;line-height:.98rem;padding:0 0 0 10px;box-sizing:border-box;font-size:0;-webkit-tap-highlight-color:rgba(0,0,0,0);position:fixed;width:7.5rem;z-index:10000;top:0}
 .topbar,.topbar a{color:#fff}
 .topbar img{width: 50px;}
 .topbar span{
@@ -91,29 +74,22 @@ html{
 }
 
 section{
-	background:#f6f6f6;
-	width:6.9rem
-	}
+    background:#f6f6f6;
+    width:6.9rem
+}
 .m_separate{
-	padding:.2rem .3rem;
-	background:#f6f6f6;
-	border-top:1px solid #e5e5e5;
-	border-bottom:1px solid #e5e5e5
-	}
+    padding:.2rem .3rem;
+    background:#f6f6f6;
+    border-top:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5
+}
 .m_article{
-	font-size:14px;
-	padding:.2rem 0;
-	border-bottom:1px solid #e5e5e5;
-	margin:0 .3rem
-	}
-.m_article .m_article_img{
-	float:left;
-	width:27%;
-	height:1.4rem;
-	overflow:hidden;
-	position:relative;
-	margin-right:.2rem
-	}
+    font-size:14px;
+    padding:.2rem 0;
+    border-bottom:1px solid #e5e5e5;
+    margin:0 .3rem
+}
+.m_article .m_article_img{float:left;width:27%;height:1.4rem;overflow:hidden;position:relative;margin-right:.2rem}
 .m_article .m_article_img .m_article_mark{color:#fff;background:#5da3e9;font-size:.28rem;text-align:center;padding:.04rem;position:absolute;display:inline-block;left:0;top:0;height:.4rem;line-height:.4rem;opacity:.9}
 .m_article .m_article_img img{width:100%;display:block;min-height:1.4rem}
 .m_article .m_article_desc .m_article_channel{display:inline-block;color:rgba(255,51,51,0.9);font-size:12px;padding:2px;line-height:12px;margin-right:.1rem;background:url(http://img2.cache.netease.com/f2e/wap/common/images/border_red.png) no-repeat;background-size:100% 100%}
