@@ -14,7 +14,8 @@ import {
     Button,
     Checkbox,
     Modal,
-    Card
+    Card,
+    notification
 } from 'antd';
 
 const FormItem = Form.Item; /*页面表单from提交的插件，后面是固定值*/
@@ -35,9 +36,7 @@ class CommonComments extends React.Component{
                 method: 'GET'
             };
             fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getcomments&uniquekey=" + this.props.uniquekey, myFetchOptions).then(response => response.json()).then(json => {
-                console.log(json);
                 this.setState({comments: json});
-                console.log(json);
             })
         };
 
@@ -48,30 +47,29 @@ class CommonComments extends React.Component{
             };
             var formdata = this.props.form.getFieldsValue();
 
-
             fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=comment&userid=" + localStorage.userid + "&uniquekey=" + this.props.uniquekey + "&commnet=" + formdata.remark, myFetchOptions).then(response => response.json()).then(json => {
                 this.componentDidMount(); /*返回json之后，需要对页面评论数据重新进行加载*/
-
             })
+        };
 
-
-            //fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=comment&useid="
-            //    +localStorage.userid+"&uniquekey="+ this.props.uniquekey+"&comment="+formdata.remark,
-            //   myFetchOptions).then(response => response.json()).then(json => {
-            //        console.log(json);
-            //    this.componentDidMount();  /*返回json之后，需要对页面评论数据重新进行加载*/
-            //})
-
+        addUserCollection(){
+            var myFetchOptions = {
+                method:'GET'
+            };
+            fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=uc&userid="+localStorage.userid+"&uniquekey="+this.props.uniquekey,myFetchOptions)
+                .then(response=>response.json())  /*取一个response，然后做json转换*/
+                .then(json=>{  /*json用作箭头函数的写法*/
+                    //收藏成功以后进行一下全局的提醒
+                    notification['success']({message:'ReactNews提醒',description:'收藏此文章成功'});
+                });
         };
 
         render(){
             const {getFieldDecorator}=this.props.form;
-
-            const {comments} =this.state;
-            const commentList = comments.length?
-                comments.map((comment,index)=>(
-                    <Card key={index} title={comment.UserName} extra={<a href='#'>发布于{comment.datetime}</a>}>
-
+            const {comments} = this.state;
+            const commnetList = comments.length
+                ? comments.map((comment, index) => (
+                    <Card key={index} title={comment.UserName} extra={<a href = "#">发布于{comment.datetime} </a>}>
                         <p>{comment.Comments}</p>
                     </Card>
                 ))
@@ -88,6 +86,8 @@ class CommonComments extends React.Component{
                                     {/*<input type="textarea" placeholder="随便写" {...getFieldProps('remark',{initialValue:''})}/>*/}
                                 </FormItem>
                                 <Button type="primary" htmlType="submit">提交评论</Button>
+                                &nbsp;&nbsp;
+                                <Button type="primary" htmlType="button" onClick={this.addUserCollection.bind(this)}>收藏该文章</Button>
                             </Form>
                         </Col>
                     </Row>
