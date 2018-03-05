@@ -96,16 +96,14 @@ export default class MobileList extends React.Component{
 
         return(
             <div>
-
                 <Row>
-                <Col span={24}>
-                    <Tloader className="main" onLoadMore={this.loadMore.bind(this)} hasMore={hasMore} initializing={initializing}>
-                        {newsList}
-                    </Tloader>
+                    <Col span={24}>
+                        <Tloader className="main" onLoadMore={this.loadMore.bind(this)} hasMore={hasMore} initializing={initializing}>
+                            {newsList}
+                        </Tloader>
 
-                </Col>
-            </Row>
-
+                    </Col>
+                </Row>
             </div>
     );
     }
