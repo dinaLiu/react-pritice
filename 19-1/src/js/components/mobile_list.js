@@ -2,7 +2,7 @@
 import React from 'react';
 import {Row,Col} from 'antd';
 import { Link} from 'react-router-dom';
-import Tloader from 'react-touch-loader';
+import {ReactPull} from 'react-alloytouch';
 
 export default class MobileList extends React.Component{
 
