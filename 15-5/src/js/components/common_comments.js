@@ -35,22 +35,28 @@ class CommonComments extends React.Component{
             };
             fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getcomments&uniquekey=" + this.props.uniquekey, myFetchOptions).then(response => response.json()).then(json => {
                 this.setState({comments: json});
+                console.log(json);
             })
         };
 
-        handleSubmit(){
+        handleSubmit(e){
             e.preventDefault();
             var myFetchOptions = {
                 method: 'GET'
             };
             var formdata = this.props.form.getFieldsValue();
-            
-            fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=comment&useid="
-                +localStorage.userid+"&uniquekey ="+ this.props.uniquekey+"&commnet ="+formdata.remark,
-                myFetchOptions).then(response => response.json()).then(json => {
-                    console.log(json);
-                this.componentDidMount();  /*返回json之后，需要对页面评论数据重新进行加载*/
+            fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=comment&userid=" + localStorage.userid + "&uniquekey=" + this.props.uniquekey + "&comment=" + formdata.remark, myFetchOptions).then(response => response.json()).then(json => {
+                this.componentDidMount();
             })
+
+
+            //fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=comment&useid="
+            //    +localStorage.userid+"&uniquekey="+ this.props.uniquekey+"&comment="+formdata.remark,
+            //   myFetchOptions).then(response => response.json()).then(json => {
+            //        console.log(json);
+            //    this.componentDidMount();  /*返回json之后，需要对页面评论数据重新进行加载*/
+            //})
+
         };
 
         render(){
@@ -59,7 +65,7 @@ class CommonComments extends React.Component{
             const commentList = comments.length?
                 comments.map((comment,index)=>(
                     <Card key={index} title={comment.UserName} extra={<a href='#'>发布于{comment.datetime}</a>}>
-                        <p>{comment.comments}</p>
+                        <p>{comment.Comments}</p>
                     </Card>
                 ))
                 :'没有加载到任何评论';
