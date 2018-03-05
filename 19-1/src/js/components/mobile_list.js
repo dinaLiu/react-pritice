@@ -2,7 +2,7 @@
 import React from 'react';
 import {Row,Col} from 'antd';
 import { Link} from 'react-router-dom';
-import {ReactPull} from 'react-alloytouch';
+import Tloader from 'react-touch-loader';
 
 export default class MobileList extends React.Component{
 
@@ -11,6 +11,8 @@ export default class MobileList extends React.Component{
         this.state = {
             news:'',
             count:5, /*默认显示5条*/
+            initializing: 1,
+            refreshedAt: Date.now(),
             hasMore : 0  /*判断这个页面下面还有没有*/
         };
     }
@@ -25,7 +27,45 @@ export default class MobileList extends React.Component{
     .then(json=>this.setState({news:json}));
     };
 
+
+    componentDidMount(){
+        setTimeout(()=>{
+            this.setState({
+                hasMore: 1,
+                initializing: 2
+            });
+        },2e3);
+    };
+
+
+
+
+
+    loadMore(resolve){
+        setTimeout(()=>{
+            var count = this.state.count;
+            this.setState({
+                count: count+5,
+            });
+
+            var myFetchOptions = {
+                method: 'GET'
+            };
+            fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.state.count, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
+
+            this.setState({
+                hasMore: count>0 && count<50
+            });
+
+            resolve();
+
+        },2e3);
+    };
+
+
+
     render(){
+        var {hasMore,initializing,refreshedAt} = this.state;
 
         //循环
         const {news} = this.state;
@@ -58,8 +98,11 @@ export default class MobileList extends React.Component{
 
                 <Row>
                 <Col span={24}>
-            {newsList}
-            </Col>
+                    <Tloader className="main" onLoadMore={this.loadMore.bind(this)} hasMore={hasMore} initializing={initializing}>
+                        {newsList}
+                    </Tloader>
+
+                </Col>
             </Row>
 
             </div>

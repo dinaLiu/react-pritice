@@ -30,7 +30,8 @@
   "devDependencies": {
     "babel-plugin-import": "^1.0.1",
     "less": "^2.7.2",
-    "less-loader": "^2.2.3"
+    "less-loader": "^2.2.3",
+    "react-touch-loader": "^1.1.2"
   },
   "description": ""
 }
