@@ -35,7 +35,7 @@ export default class Root extends React.Component{
 
         return(
             <div>
-                Redux
+                REDUX
             </div>
         );
     };
