@@ -8,8 +8,8 @@ export default class MobileIndex extends React.Component{
     render(){
         return(
             <div>
-                <MobileHeader></MobileHeader>
-                <MobileFooter></MobileFooter>
+                <MobileHeader/>
+                <MobileFooter/>
             </div>
         );
     };

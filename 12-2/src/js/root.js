@@ -15,6 +15,7 @@ export default class Root extends React.Component{
 
         return(
             <div>
+
                 <MediaQuery query="(min-device-width:1224px)"> {/*MediaQuery,可以通过屏幕大小的变化来适配，显示不同屏幕大小的东西出来; MediaQuery 后面跟的是query，这里query查询的是最小屏幕显示的宽*/}
                     <PCIndex/>
                 </MediaQuery>
