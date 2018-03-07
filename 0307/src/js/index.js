@@ -3,6 +3,7 @@
  */
 import React from "react";
 import ReactDOM from "react-dom";
+import SlidingTabsDemo from "./components/radio";
 
 class Index extends React.Component{
     render(){
@@ -16,4 +17,4 @@ class Index extends React.Component{
 ReactDOM.render(
     <Index/>,
     document.getElementById('mainContainer')
-)
+);

@@ -1,6 +1,8 @@
 /**
  * Created by Administrator on 2018/3/7 0007.
  */
+import React from "react";
+import ReactDOM from "react-dom";
 import { Tabs, Radio } from 'antd';
 const TabPane = Tabs.TabPane;
 
@@ -11,7 +13,7 @@ class SlidingTabsDemo extends React.Component {
             mode: 'top',
         };
     }
-    handleModeChange = (e) => {
+    handleModeChange(e){
         const mode = e.target.value;
         this.setState({ mode });
     };
@@ -23,11 +25,7 @@ class SlidingTabsDemo extends React.Component {
                     <Radio.Button value="top">Horizontal</Radio.Button>
                     <Radio.Button value="left">Vertical</Radio.Button>
                 </Radio.Group>
-                <Tabs
-                    defaultActiveKey="1"
-                    tabPosition={mode}
-                    style={{ height: 220 }}
-                >
+                <Tabs defaultActiveKey="1" tabPosition={mode} style={{ height: 220 }}>
                     <TabPane tab="Tab 1" key="1">Content of tab 1</TabPane>
                     <TabPane tab="Tab 2" key="2">Content of tab 2</TabPane>
                     <TabPane tab="Tab 3" key="3">Content of tab 3</TabPane>
@@ -44,5 +42,3 @@ class SlidingTabsDemo extends React.Component {
         );
     }
 }
-
-ReactDOM.render(<SlidingTabsDemo />, mountNode);
