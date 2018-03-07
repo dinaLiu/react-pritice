@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route, BrowserRouter,Switch} from 'react-router-dom';
-import {Button,Icon} from 'antd';
+import Button from 'antd/lib/button';
 import PCIndex from './components/pc_index';
 import PCNewsDetails from './components/pc_news_details';
 import MobileNewsDetails from './components/mobile_news_details';

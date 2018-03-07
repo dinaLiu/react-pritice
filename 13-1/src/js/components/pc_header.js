@@ -32,10 +32,11 @@ class PCHeader extends React.Component{
             userid : 0 /*当前没有，就定义为0*/
         };
     }
-
+    //用来控制modal框是否显示或者隐藏
     setModalVisible(value){
         this.setState({modalVisible:value});
     }
+    /*handleClick括号里面会接收一个参数e*/
     handleClick(e){
 
         if(e.key=="register"){
@@ -44,10 +45,13 @@ class PCHeader extends React.Component{
         }
         else {
             {
+                /*点击的哪一个就让哪一个高亮*/
                 this.setState({current:e.key});
             }
         }
     }
+
+    /**/
     handleSubmit(e){
         /*页面开始向 API 进行提交数据*/
         e.preventDefault();
@@ -57,6 +61,7 @@ class PCHeader extends React.Component{
         var formData = this.props.form.getFieldsValue();
         console.log("表单输出："+formData);
         console.log('this.state.action:'+this.state.action);
+        /*fetch 主要处理在js中的API、http，类似ajax这类的请求*/
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action="+ this.state.action
             + "&username="+formData.userName+"&password="+formData.password
             +"&r_userName=" + formData.r_userName + "&r_password="
@@ -72,7 +77,7 @@ class PCHeader extends React.Component{
         }
 
         message.success("请求成功！");
-        this.setModalVisible(false);
+        this.setModalVisible(false); /*隐藏modal框*/
 
     };
     callback(key) {
@@ -85,7 +90,8 @@ class PCHeader extends React.Component{
 
     render(){
         /*定义一个全局的量来接收表单全局的参数*/
-        let {getFieldDecorator}=this.props.form;
+        const {getFieldDecorator}=this.props.form;
+        //定义一个userShow，通过this.state判断是否登录，如果用户登录显示问号后面的，如果没有就注册
         const userShow = this.state.hasLogined
         ?<Menu.Item key="logout" className = "register">
                 <Button type="primary" htmlType="button">{this.state.userNickName}</Button>
@@ -112,6 +118,7 @@ class PCHeader extends React.Component{
                         </a>
                     </Col>
                     <Col span={16}>
+                        {/*在menu里面，点击menu里面对应的东西的时候，onclick，要执行一些相应的动作；mode="horizontal" 横向的*/}
                         <Menu mode="horizontal" onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]}>
                             <Menu.Item key="top">
                                 <Icon type="appstore"/>头条
@@ -139,11 +146,15 @@ class PCHeader extends React.Component{
                             </Menu.Item>
                             {userShow}
                         </Menu>
+                        {/*注册、登录弹出框的东西*/}
+                        {/*Modal自带的一个类wrapClassName，wrapClassName="vertical-center-modal"垂直居中的modal；visible={this.state.modalVisible}其中设置的一个modalVisible，是否显示或者隐藏；点击取消按钮的时候，使用箭头函数*/}
                         <Modal title="用户中心" wrapClassName="vertical-center-modal" visible={this.state.modalVisible} onCancel={()=>this.setModalVisible(false)} onOk={()=>this.setModalVisible(false)}  okText="关闭">
+                            {/*用Tabs来进行一个样式的切换*/}
                             <Tabs type="card">
                                 <TabPane tab="注册" key="2">
                                     <Form layout="horizontal" onSubmit={this.handleSubmit.bind(this)}>
                                         <FormItem label="账户">
+                                            {/*用getFieldDecorator来接收，格式如下*/}
                                             {getFieldDecorator('r_userName')(<Input placeholder="请输入您的账号" />)}
                                         </FormItem>
                                         <FormItem label="密码">
@@ -164,4 +175,4 @@ class PCHeader extends React.Component{
         )
     }
 }
-export default PCHeader = Form.create({})(PCHeader);
+export default PCHeader = Form.create({})(PCHeader); //render之后，要把form做一个二次封装，然后再引用或者实例化

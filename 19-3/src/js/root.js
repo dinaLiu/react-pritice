@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
-import reducer from './reducers.js';
+import reducer from './reducers';
 
 export default class Root extends React.Component{
     /*定义UI上的action*/
