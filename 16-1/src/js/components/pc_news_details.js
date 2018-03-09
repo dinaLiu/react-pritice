@@ -18,7 +18,9 @@ export default class PCNewsDetails extends React.Component {
         };
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnewsitem&uniquekey=" + this.props.match.params.uniquekey, myFetchOptions)
             .then(response => response.json())
-            .then(json => {this.setState({newsItem: json});
+            .then(json => {
+                console.log(json);
+                this.setState({newsItem: json});
             document.title = this.state.newsItem.title + " - React News | React 驱动的新闻平台";
         })
     };

@@ -70,9 +70,10 @@ class PCHeader extends React.Component{
             + formData.r_confirmPassword, myFetchOptions)
             .then(response => response.json())
             .then(json => {
+                console.log(json);
                 this.setState({userNickName: json.NickUserName, userid: json.UserId});
-                localStorage.userid= json.UserId;
-                localStorage.userNickName= json.NickUserName;
+               localStorage.userid= json.UserId;
+               localStorage.userNickName= json.NickUserName;
             });
 
         if (this.state.action=="login") {

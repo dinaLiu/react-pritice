@@ -19,6 +19,7 @@ const SubMenu = Menu.SubMenu;
 const TabPane = Tabs.TabPane;
 const MenuItemGroup = Menu.ItemGroup;
 
+
 class PCHeader extends React.Component{
 
     constructor(){
@@ -73,6 +74,7 @@ class PCHeader extends React.Component{
                 this.setState({userNickName: json.NickUserName, userid: json.UserId});
                 localStorage.userid= json.UserId;
                 localStorage.userNickName= json.NickUserName;
+                localStorage.userName='小明';
             });
 
         if (this.state.action=="login") {
@@ -120,10 +122,15 @@ class PCHeader extends React.Component{
                 <Row>
                     <Col span={1}></Col>
                     <Col span={4}>
-                        <a href="/" className="logo">
+                        {/*<a href="/" className="logo">*/}
+                            {/*<img src="/src/images/logo.ico" alt="logo"/>*/}
+                            {/*<span>ReactNews</span>*/}
+                        {/*</a>*/}
+
+                        <Link to={`/`} className="logo">
                             <img src="/src/images/logo.ico" alt="logo"/>
                             <span>ReactNews</span>
-                        </a>
+                        </Link>
                     </Col>
                     <Col span={18}>
                         <Menu mode="horizontal" onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]}>

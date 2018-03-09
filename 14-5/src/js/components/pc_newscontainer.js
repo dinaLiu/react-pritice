@@ -27,10 +27,13 @@ export default class PCNewsContainer extends React.Component{
                                 </Carousel>
                             </div>
                         </div>
-                        <Tabs className="tabs_news">
+                        {/*调用模块，用Tabs TabPane开始布局*/}
+                        <Tabs className="tabs_news">{/*默认选中第一个就不用设置defaultActiveKey选中哪一项的属性了*/}
                             <TabPane tab="头条新闻" key="1">
+                                {/*count传参，灵活性：要调多少条新闻，直接通过PCNewsBlock这个版块暴露出来外部的属性count，直接传参；type类型直接从上边的导航来写*/}
                                 <PCNewsBlock count={22} type="top" width="100%" bordered="false"/>
                             </TabPane>
+                            {/*模拟上个模块*/}
                             <TabPane tab="国际" key="2">
                                 <PCNewsBlock count={22} type="guoji" width="100%" bordered="false"/>
                             </TabPane>
