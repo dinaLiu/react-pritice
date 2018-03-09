@@ -1,6 +1,7 @@
 import React from 'react';
 import {Row, Col} from 'antd';
 export default class PCNewsDetails extends React.Component {
+    /*通过json取一条详情信息，对它进行赋值*/
     constructor() {
         super();
         this.state = {
@@ -16,6 +17,7 @@ export default class PCNewsDetails extends React.Component {
             document.title = this.state.newsItem.title + " - React News | React 驱动的新闻平台";
         })
     };
+    /*通过createMarkup这个方法把接口的内容写进来*/
     createMarkup() {
         return {__html: this.state.newsItem.pagecontent};
     };

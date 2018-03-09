@@ -1,33 +1,37 @@
 /**
  * Created by Administrator on 2018/3/7 0007.
  */
+import React from "react";
+import ReactDOM from "react-dom";
 import { Tabs, Radio } from 'antd';
+import  'antd/dist/antd.css'; /*一次引用所有的 antd style*/
 const TabPane = Tabs.TabPane;
 
-class SlidingTabsDemo extends React.Component {
+export default class SlidingTabsDemo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             mode: 'top',
         };
     }
-    handleModeChange = (e) => {
+    handleModeChange(e){
+
         const mode = e.target.value;
-        this.setState({ mode });
+        this.setState({ mode : mode });
     };
     render() {
-        const { mode } = this.state;
+        const {mode} = this.state;
+
         return (
             <div>
-                <Radio.Group onChange={this.handleModeChange} value={mode} style={{ marginBottom: 8 }}>
+                <Radio.Group onChange={this.handleModeChange.bind(this)} value={mode} style={{ marginBottom: 8 }}>
                     <Radio.Button value="top">Horizontal</Radio.Button>
                     <Radio.Button value="left">Vertical</Radio.Button>
+                    <Radio.Button value="bottom">Bottom</Radio.Button>
+                    <Radio.Button value="right">Right</Radio.Button>
                 </Radio.Group>
-                <Tabs
-                    defaultActiveKey="1"
-                    tabPosition={mode}
-                    style={{ height: 220 }}
-                >
+                <Tabs defaultActiveKey="1" tabPosition={mode} style={{ height: 220 }}>
+
                     <TabPane tab="Tab 1" key="1">Content of tab 1</TabPane>
                     <TabPane tab="Tab 2" key="2">Content of tab 2</TabPane>
                     <TabPane tab="Tab 3" key="3">Content of tab 3</TabPane>

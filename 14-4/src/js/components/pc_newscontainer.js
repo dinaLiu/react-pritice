@@ -6,10 +6,10 @@ export default class PCNewsContainer extends React.Component{
     render(){
         const settings ={
             dots:true,
-            infinite:true,
+            infinite:true, /*控制样式展示*/
             speed:500,
-            slidersToShow:1,
-            autoplay:true
+            slidersToShow:1, /*从哪一张开始*/
+            autoplay:true  /*自动播放*/
         };
         return(
             <div>
