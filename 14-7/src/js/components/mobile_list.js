@@ -28,8 +28,8 @@ export default class MobileList extends React.Component{
         const {news} = this.state;
         const newsList = news.length
             ? news.map((newsItem,index) => (
-                {/*循环的东西里面每一个都要给一些key，不然会有警告*/}
-                <section key={index} className="m_article list_item special_section clearfix">
+
+                <section key={index} className="m_article list_item special_section clearfix"> {/*循环的东西里面每一个都要给一些key，不然会有警告*/}
                     <Link to={`/details/${newsItem.uniqueKey}`}>
                         <div className="m_article_img">
                             {/*图片加载的缩略图的地址newsItem.thumbnail_pic_s}*/}
