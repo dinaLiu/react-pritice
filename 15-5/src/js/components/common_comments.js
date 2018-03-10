@@ -85,7 +85,7 @@ class CommonComments extends React.Component{
                             <Form onSubmit ={this.handleSubmit.bind(this)}>
                                 <FormItem label="您的评论">
                                     {getFieldDecorator('remark',{initialValue:''})(<Input placeholder="随便写" type="textarea" />)}
-                                    {/*<input type="textarea" placeholder="随便写" {...getFieldProps('remark',{initialValue:''})}/>*/}
+                                    {/*<input type="textarea" placeholder="随便写" {...getFieldProps('remark',{initialValue:''})}/>*/} {/*initialValue:''初始化的值为空*/}
                                 </FormItem>
                                 <Button type="primary" htmlType="submit">提交评论</Button>
                             </Form>
