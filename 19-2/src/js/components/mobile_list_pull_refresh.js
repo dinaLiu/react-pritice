@@ -4,7 +4,7 @@
 import React from 'react';
 import {Row,Col} from 'antd';
 import { Link} from 'react-router-dom';
-import ReactPullToRefresh from 'react-pull-to-refresh';
+//import ReactPullToRefresh from 'react-pull-to-refresh';
 
 export default class MobileList extends React.Component{
 
@@ -72,11 +72,13 @@ export default class MobileList extends React.Component{
 
                 <Row>
                     <Col span={24}>
-                        <ReactPullToRefresh onRefresh={this.handleRefresh.bind(this)} style={{textAlign:'center'}}>
-                            <span className="genericon genericon-next"> {/*下拉跟新小圈圈，自带文本属性*/}
+                        /*<ReactPullToRefresh onRefresh={this.handleRefresh.bind(this)} style={{
+  textAlign: 'center'
+}}>
+                            <span className="genericon genericon-next"> { /*下拉跟新小圈圈，自带文本属性*/ }
                                 <div>{newsList}</div>
                             </span>
-                        </ReactPullToRefresh>
+                        </ReactPullToRefresh>*/
                     </Col>
                 </Row>
 
